@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { BACKUP_EMAIL, BACKUP_EMAIL_HREF, DIRECT_QUOTE_EMAIL_HREF, MAP_HREF, PHONE_DISPLAY, PHONE_HREF, PRIMARY_EMAIL } from "../lib/contact";
 
 const services = [
@@ -10,11 +11,11 @@ const services = [
 export function Header() {
   return (
     <header className="site-header">
-      <a className="brand" href="/" aria-label="J Bullivant Cleaning home">
+      <Link className="brand" href="/" aria-label="J Bullivant Cleaning home">
         <img src="/images/j-bullivant-logo.png" alt="J Bullivant Cleaning Services" />
-      </a>
+      </Link>
       <nav className="desktop-nav" aria-label="Main navigation">
-        <a href="/">Home</a>
+        <Link href="/">Home</Link>
         <details className="nav-dropdown">
           <summary>Services <span aria-hidden="true">⌄</span></summary>
           <div className="nav-dropdown-panel">
@@ -31,7 +32,7 @@ export function Header() {
       <details className="mobile-menu">
         <summary aria-label="Open navigation"><span></span><span></span><span></span></summary>
         <div className="mobile-menu-panel">
-          <a href="/">Home</a>
+          <Link href="/">Home</Link>
           {services.map(([label, href]) => <a href={href} key={href}>{label}</a>)}
           <a href="/about">About</a>
           <a href="/areas-we-cover">Areas We Cover</a>
@@ -54,7 +55,7 @@ export function Footer() {
         </div>
         <div>
           <p className="footer-label">Explore</p>
-          <a href="/">Home</a>
+          <Link href="/">Home</Link>
           <a href="/about">About</a>
           <a href="/areas-we-cover">Areas We Cover</a>
           <a href="/quote">Free Quote</a>

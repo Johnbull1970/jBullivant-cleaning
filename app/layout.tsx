@@ -6,7 +6,7 @@ import { Footer, Header, MobileActions } from "./components/SiteChrome";
 export async function generateMetadata(): Promise<Metadata> {
   const requestHeaders = await headers();
   const host = requestHeaders.get("host") || "j-bullivant-cleaning.sites.openai.com";
-  const protocol = host.includes("localhost") ? "http" : "https";
+  const protocol = requestHeaders.get("x-forwarded-proto") || "https";
   const base = new URL(`${protocol}://${host}`);
   const title = "J Bullivant Cleaning | Window Cleaning Birmingham & Solihull";
   const description = "Family-run residential and commercial window cleaning across Birmingham, Solihull and surrounding areas.";

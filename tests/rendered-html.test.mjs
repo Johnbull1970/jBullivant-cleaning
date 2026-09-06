@@ -1,6 +1,8 @@
 import assert from "node:assert/strict";
+import { spawn } from "node:child_process";
 import { readFile } from "node:fs/promises";
-import test from "node:test";
+import { fileURLToPath } from "node:url";
+import test, { after, before } from "node:test";
 import {
   BACKUP_EMAIL_HREF,
   DIRECT_QUOTE_EMAIL_HREF,
@@ -22,15 +24,42 @@ const publicRoutes = [
   "/quote",
 ];
 
-async function render(pathname = "/") {
-  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
-  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}-${pathname}`);
-  const { default: worker } = await import(workerUrl.href);
-  return worker.fetch(
-    new Request(`https://example.test${pathname}`, { headers: { accept: "text/html", host: "example.test" } }),
-    { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } },
-    { waitUntil() {}, passThroughOnException() {} },
+const projectRoot = fileURLToPath(new URL("..", import.meta.url));
+const testPort = Number(process.env.TEST_PORT || 34118);
+const testOrigin = `http://127.0.0.1:${testPort}`;
+let productionServer;
+let productionServerOutput = "";
+
+before(async () => {
+  productionServer = spawn(
+    process.execPath,
+    ["node_modules/next/dist/bin/next", "start", "--hostname", "127.0.0.1", "--port", String(testPort)],
+    { cwd: projectRoot, env: { ...process.env, NODE_ENV: "production" } },
   );
+  productionServer.stdout.on("data", (chunk) => { productionServerOutput += chunk; });
+  productionServer.stderr.on("data", (chunk) => { productionServerOutput += chunk; });
+
+  for (let attempt = 0; attempt < 100; attempt += 1) {
+    if (productionServer.exitCode !== null) {
+      throw new Error(`Production server exited early.\n${productionServerOutput}`);
+    }
+    try {
+      const response = await fetch(testOrigin);
+      if (response.ok) return;
+    } catch {
+      // The server is still starting.
+    }
+    await new Promise((resolve) => setTimeout(resolve, 50));
+  }
+  throw new Error(`Production server did not become ready.\n${productionServerOutput}`);
+});
+
+after(() => {
+  productionServer?.kill("SIGTERM");
+});
+
+async function render(pathname = "/") {
+  return fetch(`${testOrigin}${pathname}`, { headers: { accept: "text/html" } });
 }
 
 function anchorsFrom(html) {
