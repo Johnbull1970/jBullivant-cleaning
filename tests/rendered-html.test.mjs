@@ -160,4 +160,7 @@ test("quote form validates before opening a real mail composer", async () => {
   assert.doesNotMatch(formSource, /sent successfully|name="windows"|name="difficultAccess"|One-off window cleaning/i);
   assert.match(cssSource, /\.hero-shade\s*\{\s*pointer-events:\s*none/);
   assert.match(cssSource, /\.service-feature img, \.image-overlay\s*\{\s*pointer-events:\s*none/);
+  assert.match(cssSource, /\.mobile-menu-panel\s*\{[^}]*max-height:\s*calc\(100dvh - 144px\)[^}]*overflow-y:\s*auto/s);
+  assert.match(cssSource, /\.mobile-menu > summary\s*\{[^}]*min-height:\s*44px[^}]*width:\s*44px/s);
+  assert.match(cssSource, /\.segmented input:focus-visible \+ span/);
 });

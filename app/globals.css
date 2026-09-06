@@ -285,6 +285,7 @@ input:focus, select:focus, textarea:focus { border-color: var(--plum); outline: 
 .yes-no-grid input { height: 1px; opacity: 0; position: absolute; width: 1px; }
 .yes-no-grid label span { background: #faf9f6; border: 1px solid var(--line); display: block; font-size: 12px; font-weight: 700; padding: 13px; text-align: center; }
 .yes-no-grid input:checked + span { background: var(--plum); color: white; }
+.segmented input:focus-visible + span, .yes-no-grid input:focus-visible + span { outline: 3px solid #b96dbb; outline-offset: 3px; }
 .commercial-fields { background: var(--paper); border-left: 3px solid var(--plum); margin-top: 32px; padding: 30px; }
 .commercial-fields .eyebrow { margin-bottom: 25px; }
 .inline-choice { margin: 25px 0 0; }
@@ -317,10 +318,10 @@ input:focus, select:focus, textarea:focus { border-color: var(--plum); outline: 
   .brand img { height: 58px; }
   .desktop-nav, .header-actions { display: none; }
   .mobile-menu { display: block; justify-self: end; position: relative; }
-  .mobile-menu > summary { cursor: pointer; display: grid; gap: 5px; list-style: none; padding: 14px 4px; width: 34px; }
+  .mobile-menu > summary { cursor: pointer; display: grid; gap: 5px; justify-items: center; list-style: none; min-height: 44px; padding: 14px 4px; width: 44px; }
   .mobile-menu > summary::-webkit-details-marker { display: none; }
   .mobile-menu > summary span { background: var(--ink); display: block; height: 2px; width: 26px; }
-  .mobile-menu-panel { background: white; border-top: 1px solid var(--line); box-shadow: 0 18px 40px rgba(25,20,25,.12); display: grid; left: -20px; padding: 12px 20px 20px; position: fixed; right: 0; top: 78px; }
+  .mobile-menu-panel { background: white; border-top: 1px solid var(--line); box-shadow: 0 18px 40px rgba(25,20,25,.12); display: grid; left: -20px; max-height: calc(100vh - 144px); max-height: calc(100dvh - 144px); overflow-y: auto; overscroll-behavior: contain; padding: 12px 20px 20px; position: fixed; right: 0; top: 78px; }
   .mobile-menu-panel a { border-bottom: 1px solid var(--line); font-size: 13px; font-weight: 700; padding: 14px 4px; }
   .mobile-menu-panel a:last-child { border: 0; color: var(--plum); }
   .mobile-actions { background: var(--white); border-top: 1px solid var(--line); bottom: 0; display: grid; grid-template-columns: 1fr 1fr; left: 0; padding: 8px; position: fixed; right: 0; z-index: 45; }
