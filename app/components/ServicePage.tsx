@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { QuoteBand } from "./SiteChrome";
+import { PHONE_DISPLAY, PHONE_HREF } from "../lib/contact";
 
 type ServicePageProps = {
   eyebrow: string;
@@ -24,8 +24,8 @@ export function ServicePage({ eyebrow, title, intro, image, imageAlt, highlights
           <h1>{title}</h1>
           <p>{intro}</p>
           <div className="hero-actions dark-actions">
-            <Link className="button" href="/quote">Get a Free Quote <span aria-hidden="true">→</span></Link>
-            <a className="text-link" href="tel:07855399330">Call 07855 399330</a>
+            <a className="button" href="/quote">Get a Free Quote <span aria-hidden="true">→</span></a>
+            <a className="text-link" href={PHONE_HREF}>Call {PHONE_DISPLAY}</a>
           </div>
         </div>
         <div className="inner-hero-media"><img src={image} alt={imageAlt} /></div>

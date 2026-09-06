@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { QuoteBand } from "../components/SiteChrome";
 
 export const metadata: Metadata = { title: "About John Bullivant", description: "Discover the family tradition and more than 40 years of hands-on experience behind J Bullivant Cleaning." };
@@ -22,7 +21,7 @@ export default function AboutPage() {
         <div className="values-copy"><p className="eyebrow light">What matters</p><h2>Personal service. Professional equipment. No fuss.</h2><div className="values-list"><p><b>Fully insured</b><span>Professional reassurance for every property.</span></p><p><b>Family-run</b><span>Direct, accountable service from a local business.</span></p><p><b>Modern &amp; traditional</b><span>The right cleaning method chosen for the job.</span></p><p><b>Regular customers</b><span>Dependable schedules and lasting relationships.</span></p></div></div>
       </section>
 
-      <section className="signature-section reveal"><span>“</span><blockquote>Good service is simple: arrive reliably, work carefully, and leave the whole window looking right.</blockquote><p>John Bullivant</p><Link className="arrow-link" href="/quote">Start a conversation <b>→</b></Link></section>
+      <section className="signature-section reveal"><span>“</span><blockquote>Good service is simple: arrive reliably, work carefully, and leave the whole window looking right.</blockquote><p>John Bullivant</p><a className="arrow-link" href="/quote">Start a conversation <b>→</b></a></section>
       <QuoteBand eyebrow="Work with an established local cleaner" title="Decades of experience. One straightforward quote." />
     </main>
   );

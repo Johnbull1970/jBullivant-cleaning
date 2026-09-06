@@ -81,6 +81,7 @@ p { color: var(--muted); font-size: 16px; line-height: 1.75; }
 
 .hero { color: white; min-height: calc(100vh - 94px); overflow: hidden; position: relative; }
 .hero-image, .hero-shade { height: 100%; inset: 0; object-fit: cover; position: absolute; width: 100%; }
+.hero-shade { pointer-events: none; }
 .hero-image { object-position: center 42%; transform: scale(1.015); }
 .hero-shade { background: linear-gradient(90deg, rgba(19, 13, 19, .9) 0%, rgba(30, 20, 29, .66) 44%, rgba(19, 13, 19, .08) 80%); }
 .hero-content { margin-left: clamp(24px, 8vw, 124px); max-width: 760px; padding: clamp(100px, 14vh, 150px) 0 145px; position: relative; z-index: 2; }
@@ -103,6 +104,7 @@ p { color: var(--muted); font-size: 16px; line-height: 1.75; }
 .service-showcase { display: grid; gap: 2px; grid-template-columns: 1.1fr .9fr; }
 .service-feature { color: white; min-height: 720px; overflow: hidden; position: relative; }
 .service-feature img, .image-overlay { height: 100%; inset: 0; object-fit: cover; position: absolute; transition: transform .8s cubic-bezier(.2,.7,.2,1); width: 100%; }
+.service-feature img, .image-overlay { pointer-events: none; }
 .service-feature img { object-position: 51% center; }
 .service-feature.commercial img { object-position: center 46%; }
 .service-feature:hover img { transform: scale(1.035); }
@@ -226,7 +228,7 @@ p { color: var(--muted); font-size: 16px; line-height: 1.75; }
 .areas-hero > div:first-child { align-self: center; position: relative; z-index: 2; }
 .areas-hero h1 { font-size: clamp(60px, 6.5vw, 100px); line-height: .94; max-width: 990px; }
 .areas-hero p:not(.eyebrow) { color: rgba(255,255,255,.7); font-size: 18px; max-width: 700px; }
-.map-pattern { align-self: center; aspect-ratio: 1; justify-self: end; position: relative; width: min(34vw, 490px); }
+.map-pattern { align-self: center; aspect-ratio: 1; justify-self: end; pointer-events: none; position: relative; width: min(34vw, 490px); }
 .map-pattern::before, .map-pattern::after, .map-ring { border: 1px solid rgba(255,255,255,.24); border-radius: 50%; content: ""; inset: 15%; position: absolute; }
 .map-pattern::after { inset: 32%; }
 .map-pattern .ring-one { inset: 0; }

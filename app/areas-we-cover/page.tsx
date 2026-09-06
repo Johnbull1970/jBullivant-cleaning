@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { QuoteBand } from "../components/SiteChrome";
 
 export const metadata: Metadata = { title: "Areas We Cover | Birmingham, Solihull & Nearby", description: "Window cleaning across Birmingham, Solihull, Shirley, Knowle, Dickens Heath, Harborne, Edgbaston, Bromsgrove and surrounding areas." };
@@ -19,7 +18,7 @@ export default function AreasPage() {
   return (
     <main>
       <section className="areas-hero">
-        <div><p className="eyebrow light">Local, reliable, established</p><h1>Serving Birmingham, Solihull and surrounding areas.</h1><p>Our regular rounds reach homes and businesses across the region. If your area is not listed, please still ask—these are key service areas, not the limits of where we work.</p><Link className="button button-white" href="/quote">Check your postcode <span>→</span></Link></div>
+        <div><p className="eyebrow light">Local, reliable, established</p><h1>Serving Birmingham, Solihull and surrounding areas.</h1><p>Our regular rounds reach homes and businesses across the region. If your area is not listed, please still ask—these are key service areas, not the limits of where we work.</p><a className="button button-white" href="/quote">Check your postcode <span>→</span></a></div>
         <div className="map-pattern" aria-hidden="true"><span className="map-ring ring-one"></span><span className="map-ring ring-two"></span><b>B30</b></div>
       </section>
 
@@ -32,7 +31,7 @@ export default function AreasPage() {
 
       <section className="postcode-section editorial-grid reveal">
         <div><p className="eyebrow">Not sure if we cover you?</p><h2>Send the postcode. We’ll take it from there.</h2></div>
-        <div><p>Routes evolve around our regular customers, so nearby locations may often be possible. Add your postcode and preferred service to the quote form, or call John directly for a quick conversation.</p><div className="postcode-actions"><Link className="button" href="/quote">Get a Free Quote</Link><a className="text-link" href="tel:07855399330">07855 399330</a></div></div>
+        <div><p>Routes evolve around our regular customers, so nearby locations may often be possible. Add your postcode and preferred service to the quote form, or call John directly for a quick conversation.</p><div className="postcode-actions"><a className="button" href="/quote">Get a Free Quote</a><a className="text-link" href="tel:07855399330">07855 399330</a></div></div>
       </section>
       <QuoteBand />
     </main>

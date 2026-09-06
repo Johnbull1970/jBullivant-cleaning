@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { BACKUP_EMAIL, BACKUP_EMAIL_HREF, DIRECT_QUOTE_EMAIL_HREF, MAP_HREF, PHONE_DISPLAY, PHONE_HREF, PRIMARY_EMAIL } from "../lib/contact";
 
 const services = [
   ["Window Cleaning", "/window-cleaning"],
@@ -10,33 +10,33 @@ const services = [
 export function Header() {
   return (
     <header className="site-header">
-      <Link className="brand" href="/" aria-label="J Bullivant Cleaning home">
+      <a className="brand" href="/" aria-label="J Bullivant Cleaning home">
         <img src="/images/j-bullivant-logo.png" alt="J Bullivant Cleaning Services" />
-      </Link>
+      </a>
       <nav className="desktop-nav" aria-label="Main navigation">
-        <Link href="/">Home</Link>
+        <a href="/">Home</a>
         <details className="nav-dropdown">
           <summary>Services <span aria-hidden="true">⌄</span></summary>
           <div className="nav-dropdown-panel">
-            {services.map(([label, href]) => <Link href={href} key={href}>{label}</Link>)}
+            {services.map(([label, href]) => <a href={href} key={href}>{label}</a>)}
           </div>
         </details>
-        <Link href="/about">About</Link>
-        <Link href="/areas-we-cover">Areas</Link>
+        <a href="/about">About</a>
+        <a href="/areas-we-cover">Areas</a>
       </nav>
       <div className="header-actions">
-        <a className="header-phone" href="tel:07855399330"><span>Call John</span> 07855 399330</a>
-        <Link className="button button-compact" href="/quote">Get a Free Quote</Link>
+        <a className="header-phone" href={PHONE_HREF}><span>Call John</span> {PHONE_DISPLAY}</a>
+        <a className="button button-compact" href="/quote">Get a Free Quote</a>
       </div>
       <details className="mobile-menu">
         <summary aria-label="Open navigation"><span></span><span></span><span></span></summary>
         <div className="mobile-menu-panel">
-          <Link href="/">Home</Link>
-          {services.map(([label, href]) => <Link href={href} key={href}>{label}</Link>)}
-          <Link href="/about">About</Link>
-          <Link href="/areas-we-cover">Areas We Cover</Link>
-          <Link href="/quote">Get a Free Quote</Link>
-          <a href="tel:07855399330">Call 07855 399330</a>
+          <a href="/">Home</a>
+          {services.map(([label, href]) => <a href={href} key={href}>{label}</a>)}
+          <a href="/about">About</a>
+          <a href="/areas-we-cover">Areas We Cover</a>
+          <a href="/quote">Get a Free Quote</a>
+          <a href={PHONE_HREF}>Call {PHONE_DISPLAY}</a>
         </div>
       </details>
     </header>
@@ -50,31 +50,31 @@ export function Footer() {
         <div className="footer-brand">
           <img src="/images/j-bullivant-logo.png" alt="J Bullivant Cleaning Services" />
           <p>Professional residential and commercial cleaning, built on a family tradition spanning more than 80 years.</p>
-          <Link className="button" href="/quote">Get a Free Quote <span aria-hidden="true">→</span></Link>
+          <a className="button" href="/quote">Get a Free Quote <span aria-hidden="true">→</span></a>
         </div>
         <div>
           <p className="footer-label">Explore</p>
-          <Link href="/">Home</Link>
-          <Link href="/about">About</Link>
-          <Link href="/areas-we-cover">Areas We Cover</Link>
-          <Link href="/quote">Free Quote</Link>
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/areas-we-cover">Areas We Cover</a>
+          <a href="/quote">Free Quote</a>
         </div>
         <div>
           <p className="footer-label">Services</p>
-          {services.map(([label, href]) => <Link href={href} key={href}>{label}</Link>)}
+          {services.map(([label, href]) => <a href={href} key={href}>{label}</a>)}
         </div>
         <div className="footer-contact">
           <p className="footer-label">Contact</p>
-          <a href="tel:07855399330">07855 399330</a>
-          <a href="mailto:Bulldotcom@blueyonder.co.uk">Bulldotcom@blueyonder.co.uk</a>
-          <a href="https://www.google.com/maps/search/?api=1&query=24+Linden+Road+Birmingham+B30+1JU" target="_blank" rel="noreferrer">24 Linden Road<br />Birmingham<br />B30 1JU</a>
+          <a href={PHONE_HREF}>{PHONE_DISPLAY}</a>
+          <a href={DIRECT_QUOTE_EMAIL_HREF}>{PRIMARY_EMAIL}</a>
+          <a href={MAP_HREF} target="_blank" rel="noreferrer">24 Linden Road<br />Birmingham<br />B30 1JU</a>
         </div>
       </div>
       <div className="footer-bottom">
         <p>Window cleaning Monday–Friday · Phone &amp; email enquiries 7 days a week</p>
         <p>Serving Birmingham, Solihull &amp; surrounding areas</p>
         <p>© 2026 J Bullivant Cleaning</p>
-        <a className="backup-email" href="mailto:bullivants@msn.com">Backup: bullivants@msn.com</a>
+        <a className="backup-email" href={BACKUP_EMAIL_HREF}>Backup: {BACKUP_EMAIL}</a>
       </div>
     </footer>
   );
@@ -83,8 +83,8 @@ export function Footer() {
 export function MobileActions() {
   return (
     <div className="mobile-actions" aria-label="Quick contact actions">
-      <a href="tel:07855399330">Call John</a>
-      <Link href="/quote">Free Quote</Link>
+      <a href={PHONE_HREF}>Call John</a>
+      <a href="/quote">Free Quote</a>
     </div>
   );
 }
@@ -97,8 +97,8 @@ export function QuoteBand({ eyebrow = "Let’s make things clearer", title = "A 
         <h2>{title}</h2>
       </div>
       <div className="quote-band-actions">
-        <Link className="button button-white" href="/quote">Get a Free Quote <span aria-hidden="true">→</span></Link>
-        <a href="tel:07855399330">Or call 07855 399330</a>
+        <a className="button button-white" href="/quote">Get a Free Quote <span aria-hidden="true">→</span></a>
+        <a href={PHONE_HREF}>Or call {PHONE_DISPLAY}</a>
       </div>
     </section>
   );

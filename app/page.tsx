@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { QuoteBand } from "./components/SiteChrome";
 
 export default function HomePage() {
@@ -12,7 +11,7 @@ export default function HomePage() {
           <h1>Clear results.<br />A reputation built<br />over generations.</h1>
           <p className="hero-copy">Professional residential and commercial window cleaning across Birmingham, Solihull and surrounding areas.</p>
           <div className="hero-actions">
-            <Link className="button" href="/quote">Get a Free Quote <span aria-hidden="true">→</span></Link>
+            <a className="button" href="/quote">Get a Free Quote <span aria-hidden="true">→</span></a>
             <a className="text-link light" href="tel:07855399330">Call 07855 399330</a>
           </div>
         </div>
@@ -34,21 +33,21 @@ export default function HomePage() {
         <div className="intro-body">
           <p className="lead">J Bullivant Cleaning combines decades of practical expertise with modern equipment and a personal, reliable service.</p>
           <p>From regular residential rounds to commercial properties, every clean is approached with care. Frames and sills are included as standard, leaving the whole window looking its best.</p>
-          <Link className="arrow-link" href="/about">Meet J Bullivant Cleaning <span>→</span></Link>
+          <a className="arrow-link" href="/about">Meet J Bullivant Cleaning <span>→</span></a>
         </div>
       </section>
 
       <section className="service-showcase">
-        <Link className="service-feature residential reveal" href="/window-cleaning">
+        <a className="service-feature residential reveal" href="/window-cleaning">
           <img src="/images/clean-residential-windows.jpg" alt="Clean white-framed residential windows" loading="lazy" />
           <div className="image-overlay" />
           <div className="service-feature-copy"><span>01 / Residential</span><h2>Regular care for a home that feels brighter.</h2><b>Explore residential services →</b></div>
-        </Link>
-        <Link className="service-feature commercial reveal" href="/commercial-cleaning">
+        </a>
+        <a className="service-feature commercial reveal" href="/commercial-cleaning">
           <img src="/images/window-cleaning-van-equipment.jpg" alt="J Bullivant professional cleaning van and equipment" loading="lazy" />
           <div className="image-overlay" />
           <div className="service-feature-copy"><span>02 / Commercial</span><h2>Reliable standards for every working environment.</h2><b>Explore commercial services →</b></div>
-        </Link>
+        </a>
       </section>
 
       <section className="methods-section">
@@ -57,7 +56,7 @@ export default function HomePage() {
           <h2>The right method for every pane.</h2>
           <p>Our pure-water reach-and-wash system lets us clean windows, frames and sills at height—safely from the ground and with no streak-causing residue.</p>
           <p>Where hands-on detail is best, we use professional traditional techniques: applicator, squeegee and scraper where appropriate. Both methods are chosen for the same reason: an excellent finish.</p>
-          <Link className="arrow-link light" href="/window-cleaning">Discover our approach <span>→</span></Link>
+          <a className="arrow-link light" href="/window-cleaning">Discover our approach <span>→</span></a>
         </div>
         <div className="methods-images reveal">
           <img className="method-main" src="/images/professional-pure-water-system.jpg" alt="Van-mounted pure-water window cleaning system" loading="lazy" />
@@ -88,16 +87,16 @@ export default function HomePage() {
 
       <section className="history-section">
         <img src="/images/traditional-window-cleaning-kit.jpg" alt="Traditional professional window cleaning equipment" loading="lazy" />
-        <div className="history-card reveal"><p className="eyebrow light">A family tradition</p><h2>More than 80 years in cleaning.</h2><p>A family cleaning tradition spanning more than 80 years, backed by over 40 years of hands-on professional experience. That history shows in the careful work, honest advice and dependable service customers return to.</p><Link className="arrow-link light" href="/about">Read our story <span>→</span></Link></div>
+        <div className="history-card reveal"><p className="eyebrow light">A family tradition</p><h2>More than 80 years in cleaning.</h2><p>A family cleaning tradition spanning more than 80 years, backed by over 40 years of hands-on professional experience. That history shows in the careful work, honest advice and dependable service customers return to.</p><a className="arrow-link light" href="/about">Read our story <span>→</span></a></div>
       </section>
 
       <section className="areas-section editorial-grid reveal">
         <div><p className="eyebrow">Local knowledge</p><h2>Serving Birmingham, Solihull and surrounding areas.</h2></div>
-        <div><p>Regular rounds cover communities across the south of Birmingham and beyond, including Shirley, Knowle, Dickens Heath, Harborne, Edgbaston and Bromsgrove.</p><div className="area-tags"><span>Birmingham</span><span>Solihull</span><span>Shirley</span><span>Knowle</span><span>+ surrounding areas</span></div><Link className="arrow-link" href="/areas-we-cover">See the areas we cover <span>→</span></Link></div>
+        <div><p>Regular rounds cover communities across the south of Birmingham and beyond, including Shirley, Knowle, Dickens Heath, Harborne, Edgbaston and Bromsgrove.</p><div className="area-tags"><span>Birmingham</span><span>Solihull</span><span>Shirley</span><span>Knowle</span><span>+ surrounding areas</span></div><a className="arrow-link" href="/areas-we-cover">See the areas we cover <span>→</span></a></div>
       </section>
 
       <section className="commercial-band">
-        <div className="commercial-band-copy reveal"><p className="eyebrow light">Commercial cleaning</p><h2>Consistent care for places where business happens.</h2><p>Regular window and internal cleaning for offices, shops, apartment blocks, care homes and other suitable commercial properties. Broader commercial internal cleaning is also available specifically around Solihull and Shirley.</p><Link className="button button-white" href="/commercial-cleaning">Commercial services <span>→</span></Link></div>
+        <div className="commercial-band-copy reveal"><p className="eyebrow light">Commercial cleaning</p><h2>Consistent care for places where business happens.</h2><p>Regular window and internal cleaning for offices, shops, apartment blocks, care homes and other suitable commercial properties. Broader commercial internal cleaning is also available specifically around Solihull and Shirley.</p><a className="button button-white" href="/commercial-cleaning">Commercial services <span>→</span></a></div>
         <img src="/images/window-cleaning-van-equipment.jpg" alt="Professional commercial cleaning equipment ready for work" loading="lazy" />
       </section>
       <QuoteBand />

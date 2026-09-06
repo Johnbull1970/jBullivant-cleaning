@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { buildQuoteMailto } from "../lib/contact";
 
 export function QuoteForm() {
   const [customerType, setCustomerType] = useState("Residential");
@@ -8,34 +9,34 @@ export function QuoteForm() {
   function prepareEmail(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
-    if (!form.reportValidity()) return;
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
     const data = new FormData(form);
     const value = (name: string) => String(data.get(name) || "Not provided");
-    const commercial = customerType === "Commercial" ? `
-Business / Property Name: ${value("businessName")}
-Commercial Property Type: ${value("commercialPropertyType")}
-Approximate Building Size: ${value("buildingSize")}
-Number of Buildings: ${value("numberOfBuildings")}
-Internal Cleaning Required: ${value("internalRequired")}` : "";
-    const body = `Free Quote Enquiry – J Bullivant Cleaning
-
-Name: ${value("name")}
-Contact: ${value("contact")}
-Property Address: ${value("address")}
-Postcode: ${value("postcode")}
-Property Type: ${value("propertyType")}
-Residential / Commercial: ${customerType}
-Service Required: ${value("service")}
-Number of Floors: ${value("floors")}
-Conservatory: ${value("conservatory")}
-Extension: ${value("extension")}
-Preferred Cleaning Frequency: ${value("frequency")}
-Preferred Contact Method: ${value("contactMethod")}
-Best Time to Contact: ${value("bestTime")}${commercial}
-
-Additional Message:
-${value("message")}`;
-    window.location.href = `mailto:Bulldotcom@blueyonder.co.uk?subject=${encodeURIComponent("Free Quote Enquiry – J Bullivant Cleaning")}&body=${encodeURIComponent(body)}`;
+    const mailtoUrl = buildQuoteMailto({
+      name: value("name"),
+      contact: value("contact"),
+      address: value("address"),
+      postcode: value("postcode"),
+      propertyType: value("propertyType"),
+      customerType,
+      service: value("service"),
+      floors: value("floors"),
+      conservatory: value("conservatory"),
+      extension: value("extension"),
+      frequency: value("frequency"),
+      contactMethod: value("contactMethod"),
+      bestTime: value("bestTime"),
+      message: value("message"),
+      businessName: value("businessName"),
+      commercialPropertyType: value("commercialPropertyType"),
+      buildingSize: value("buildingSize"),
+      numberOfBuildings: value("numberOfBuildings"),
+      internalRequired: value("internalRequired"),
+    });
+    window.location.assign(mailtoUrl);
   }
 
   return (
