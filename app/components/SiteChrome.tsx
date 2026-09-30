@@ -12,7 +12,7 @@ export function Header() {
   return (
     <header className="site-header">
       <Link className="brand" href="/" aria-label="Bullivant Cleaning home">
-        <img src="/images/bullivant-cleaning-logo.svg" alt="Bullivant Cleaning" />
+        <img src="/images/j-bullivant-logo.png" alt="Bullivant Cleaning" />
       </Link>
       <nav className="desktop-nav" aria-label="Main navigation">
         <Link href="/">Home</Link>
@@ -49,7 +49,7 @@ export function Footer() {
     <footer className="footer">
       <div className="footer-top">
         <div className="footer-brand">
-          <img src="/images/bullivant-cleaning-logo.svg" alt="Bullivant Cleaning" />
+          <img src="/images/j-bullivant-logo.png" alt="Bullivant Cleaning" />
           <p>Professional residential and commercial cleaning, built on a family tradition spanning more than 80 years.</p>
           <a className="button" href="/quote">Get a Free Quote <span aria-hidden="true">→</span></a>
         </div>
