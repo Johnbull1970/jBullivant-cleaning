@@ -11,8 +11,8 @@ const services = [
 export function Header() {
   return (
     <header className="site-header">
-      <Link className="brand" href="/" aria-label="J Bullivant Cleaning home">
-        <img src="/images/j-bullivant-logo.png" alt="J Bullivant Cleaning Services" />
+      <Link className="brand" href="/" aria-label="Bullivant Cleaning home">
+        <img src="/images/bullivant-cleaning-logo.svg" alt="Bullivant Cleaning" />
       </Link>
       <nav className="desktop-nav" aria-label="Main navigation">
         <Link href="/">Home</Link>
@@ -49,7 +49,7 @@ export function Footer() {
     <footer className="footer">
       <div className="footer-top">
         <div className="footer-brand">
-          <img src="/images/j-bullivant-logo.png" alt="J Bullivant Cleaning Services" />
+          <img src="/images/bullivant-cleaning-logo.svg" alt="Bullivant Cleaning" />
           <p>Professional residential and commercial cleaning, built on a family tradition spanning more than 80 years.</p>
           <a className="button" href="/quote">Get a Free Quote <span aria-hidden="true">→</span></a>
         </div>
@@ -74,7 +74,7 @@ export function Footer() {
       <div className="footer-bottom">
         <p>Window cleaning Monday–Friday · Phone &amp; email enquiries 7 days a week</p>
         <p>Serving Birmingham, Solihull &amp; surrounding areas</p>
-        <p>© 2026 J Bullivant Cleaning</p>
+        <p>© 2026 Bullivant Cleaning</p>
         <a className="backup-email" href={BACKUP_EMAIL_HREF}>Backup: {BACKUP_EMAIL}</a>
       </div>
     </footer>

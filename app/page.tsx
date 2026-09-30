@@ -8,8 +8,8 @@ export default function HomePage() {
         <div className="hero-shade" />
         <div className="hero-content">
           <p className="eyebrow light">Established family-run cleaning specialists</p>
-          <h1>Clear results.<br />A reputation built<br />over generations.</h1>
-          <p className="hero-copy">Professional residential and commercial window cleaning across Birmingham, Solihull and surrounding areas.</p>
+          <h1>Professional window cleaning<br />in Birmingham.</h1>
+          <p className="hero-copy">Bullivant Cleaning provides residential and commercial window cleaning, plus gutter, soffit and internal window cleaning, across Birmingham and surrounding areas.</p>
           <div className="hero-actions">
             <a className="button" href="/quote">Get a Free Quote <span aria-hidden="true">→</span></a>
             <a className="text-link light" href="tel:07855399330">Call 07855 399330</a>
@@ -27,13 +27,13 @@ export default function HomePage() {
 
       <section className="intro-section editorial-grid reveal">
         <div>
-          <p className="eyebrow">Birmingham’s trusted cleaning specialists</p>
+          <p className="eyebrow">Local window cleaners in Birmingham</p>
           <h2>Clean windows.<br />Clear standards.</h2>
         </div>
         <div className="intro-body">
-          <p className="lead">J Bullivant Cleaning combines decades of practical expertise with modern equipment and a personal, reliable service.</p>
-          <p>From regular residential rounds to commercial properties, every clean is approached with care. Frames and sills are included as standard, leaving the whole window looking its best.</p>
-          <a className="arrow-link" href="/about">Meet J Bullivant Cleaning <span>→</span></a>
+          <p className="lead">Bullivant Cleaning combines decades of practical expertise with modern equipment and a personal, reliable service.</p>
+          <p>From regular residential window cleaning to commercial properties, every clean is approached with care. Frames and sills are included as standard, leaving the whole window looking its best.</p>
+          <a className="arrow-link" href="/about">Meet Bullivant Cleaning <span>→</span></a>
         </div>
       </section>
 
@@ -44,7 +44,7 @@ export default function HomePage() {
           <div className="service-feature-copy"><span>01 / Residential</span><h2>Regular care for a home that feels brighter.</h2><b>Explore residential services →</b></div>
         </a>
         <a className="service-feature commercial reveal" href="/commercial-cleaning">
-          <img src="/images/window-cleaning-van-equipment.jpg" alt="J Bullivant professional cleaning van and equipment" loading="lazy" />
+          <img src="/images/window-cleaning-van-equipment.jpg" alt="Commercial window cleaning equipment used by Bullivant Cleaning" loading="lazy" />
           <div className="image-overlay" />
           <div className="service-feature-copy"><span>02 / Commercial</span><h2>Reliable standards for every working environment.</h2><b>Explore commercial services →</b></div>
         </a>
@@ -75,7 +75,7 @@ export default function HomePage() {
 
       <section className="why-section editorial-grid reveal">
         <div>
-          <p className="eyebrow">Why J Bullivant</p>
+          <p className="eyebrow">Why Bullivant Cleaning</p>
           <h2>Dependable by habit. Detailed by nature.</h2>
         </div>
         <div className="why-list">

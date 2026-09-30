@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { ServicePage } from "../components/ServicePage";
+import { createPageMetadata } from "../lib/seo";
 
-export const metadata: Metadata = { title: "Internal Window Cleaning Birmingham", description: "Professional internal window cleaning for homes and commercial properties across Birmingham and Solihull." };
+export const metadata: Metadata = createPageMetadata({ title: "Internal Window Cleaning Birmingham | Bullivant Cleaning", description: "Careful internal window cleaning for homes, offices, shops and suitable commercial properties across Birmingham and Solihull.", path: "/internal-cleaning" });
 
 export default function InternalPage() {
-  return <ServicePage eyebrow="Inside the property" title="A detailed finish, inside and out." intro="Professional internal window cleaning for residential and commercial properties, completed with care around your rooms, furnishings and working environment." image="/images/squeegee-and-applicator.jpg" imageAlt="Professional squeegee and applicator for detailed internal window cleaning" highlights={[
+  return <ServicePage eyebrow="Inside the property" title="Internal window cleaning in Birmingham." intro="Professional internal window cleaning for residential and commercial properties across Birmingham and Solihull, completed with care around your rooms, furnishings and working environment." image="/images/squeegee-and-applicator.jpg" imageAlt="Professional internal window cleaning with a squeegee and applicator" highlights={[
     { title: "Residential interiors", text: "Careful internal cleaning for homes, flats and apartments." },
     { title: "Commercial interiors", text: "Window cleaning for offices, shops, care homes and suitable workplaces." },
     { title: "Hands-on detail", text: "Professional applicator, squeegee and scraper methods where appropriate." },

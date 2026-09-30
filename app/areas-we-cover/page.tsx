@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { QuoteBand } from "../components/SiteChrome";
+import { createPageMetadata } from "../lib/seo";
 
-export const metadata: Metadata = { title: "Areas We Cover | Birmingham, Solihull & Nearby", description: "Window cleaning across Birmingham, Solihull, Shirley, Knowle, Dickens Heath, Harborne, Edgbaston, Bromsgrove and surrounding areas." };
+export const metadata: Metadata = createPageMetadata({ title: "Window Cleaning Across Birmingham & Surrounding Areas | Bullivant Cleaning", description: "Local window cleaning across Birmingham, Solihull, Shirley, Knowle, Dickens Heath, Harborne, Edgbaston, Bromsgrove and nearby areas.", path: "/areas-we-cover" });
 
 const areas = [
-  ["Birmingham", "Regular residential and commercial window cleaning across the city and south Birmingham."],
+  ["Birmingham", "Regular residential and commercial window cleaning across the city and south Birmingham, including high-reach work where suitable."],
   ["Solihull", "Window, gutter, soffit and commercial services, including broader internal commercial cleaning."],
   ["Shirley", "Regular window cleaning plus broader commercial internal cleaning enquiries."],
   ["Knowle", "Professional regular residential and commercial window care."],
@@ -31,7 +32,7 @@ export default function AreasPage() {
 
       <section className="postcode-section editorial-grid reveal">
         <div><p className="eyebrow">Not sure if we cover you?</p><h2>Send the postcode. We’ll take it from there.</h2></div>
-        <div><p>Routes evolve around our regular customers, so nearby locations may often be possible. Add your postcode and preferred service to the quote form, or call John directly for a quick conversation.</p><div className="postcode-actions"><a className="button" href="/quote">Get a Free Quote</a><a className="text-link" href="tel:07855399330">07855 399330</a></div></div>
+        <div><p>Routes evolve around our regular customers, so nearby locations may often be possible. Explore our <a className="inline-link" href="/window-cleaning">residential window cleaning</a>, <a className="inline-link" href="/gutter-soffit-cleaning">gutter and soffit cleaning</a> and <a className="inline-link" href="/commercial-cleaning">commercial window cleaning</a>, then add your postcode and preferred service to the quote form.</p><div className="postcode-actions"><a className="button" href="/quote">Get a Free Quote</a><a className="text-link" href="tel:07855399330">07855 399330</a></div></div>
       </section>
       <QuoteBand />
     </main>

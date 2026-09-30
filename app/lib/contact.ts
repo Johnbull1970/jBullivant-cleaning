@@ -2,7 +2,7 @@ export const PRIMARY_EMAIL = "Bulldotcom@blueyonder.co.uk";
 export const BACKUP_EMAIL = "bullivants@msn.com";
 export const PHONE_DISPLAY = "07855 399330";
 export const PHONE_HREF = "tel:07855399330";
-export const QUOTE_SUBJECT = "Free Quote Enquiry – J Bullivant Cleaning";
+export const QUOTE_SUBJECT = "Free Quote Enquiry – Bullivant Cleaning";
 export const DIRECT_QUOTE_EMAIL_HREF = `mailto:${PRIMARY_EMAIL}?subject=${encodeURIComponent(QUOTE_SUBJECT)}`;
 export const BACKUP_EMAIL_HREF = `mailto:${BACKUP_EMAIL}`;
 export const MAP_HREF = "https://www.google.com/maps/search/?api=1&query=24+Linden+Road+Birmingham+B30+1JU";

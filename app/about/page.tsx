@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import { QuoteBand } from "../components/SiteChrome";
+import { createPageMetadata } from "../lib/seo";
 
-export const metadata: Metadata = { title: "About John Bullivant", description: "Discover the family tradition and more than 40 years of hands-on experience behind J Bullivant Cleaning." };
+export const metadata: Metadata = createPageMetadata({ title: "About Bullivant Cleaning | Birmingham Window Cleaners", description: "Meet John and discover the family tradition and more than 40 years of hands-on experience behind Bullivant Cleaning in Birmingham.", path: "/about" });
 
 export default function AboutPage() {
   return (
     <main>
       <section className="about-hero">
-        <div className="about-hero-copy"><p className="eyebrow light">The story behind the standard</p><h1>A family name built on dependable work.</h1><p>J Bullivant Cleaning is led by John Bullivant, bringing more than four decades of hands-on professional experience to every regular round and commercial relationship.</p></div>
-        <img src="/images/professional-pure-water-system.jpg" alt="J Bullivant Cleaning's professional van-mounted equipment" />
+        <div className="about-hero-copy"><p className="eyebrow light">The story behind the standard</p><h1>About Bullivant Cleaning.</h1><p>Bullivant Cleaning is led by John, bringing more than four decades of hands-on professional experience to every regular round and commercial relationship.</p></div>
+        <img src="/images/professional-pure-water-system.jpg" alt="Bullivant Cleaning professional van-mounted pure-water equipment" />
       </section>
 
       <section className="story-section editorial-grid reveal">
@@ -21,7 +22,7 @@ export default function AboutPage() {
         <div className="values-copy"><p className="eyebrow light">What matters</p><h2>Personal service. Professional equipment. No fuss.</h2><div className="values-list"><p><b>Fully insured</b><span>Professional reassurance for every property.</span></p><p><b>Family-run</b><span>Direct, accountable service from a local business.</span></p><p><b>Modern &amp; traditional</b><span>The right cleaning method chosen for the job.</span></p><p><b>Regular customers</b><span>Dependable schedules and lasting relationships.</span></p></div></div>
       </section>
 
-      <section className="signature-section reveal"><span>“</span><blockquote>Good service is simple: arrive reliably, work carefully, and leave the whole window looking right.</blockquote><p>John Bullivant</p><a className="arrow-link" href="/quote">Start a conversation <b>→</b></a></section>
+      <section className="signature-section reveal"><span>“</span><blockquote>Good service is simple: arrive reliably, work carefully, and leave the whole window looking right.</blockquote><p>John</p><a className="arrow-link" href="/quote">Start a conversation <b>→</b></a></section>
       <QuoteBand eyebrow="Work with an established local cleaner" title="Decades of experience. One straightforward quote." />
     </main>
   );

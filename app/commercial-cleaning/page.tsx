@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { ServicePage } from "../components/ServicePage";
+import { createPageMetadata } from "../lib/seo";
 
-export const metadata: Metadata = { title: "Commercial Window Cleaning Birmingham & Solihull", description: "Commercial window and internal cleaning for offices, shops, apartment blocks and care homes in Birmingham and Solihull." };
+export const metadata: Metadata = createPageMetadata({ title: "Commercial Window Cleaning Birmingham | Bullivant Cleaning", description: "Reliable commercial window cleaning in Birmingham and Solihull for offices, shops, apartment blocks, care homes and other suitable properties.", path: "/commercial-cleaning" });
 
 export default function CommercialPage() {
-  return <ServicePage eyebrow="Commercial cleaning" title="Professional standards, reliably maintained." intro="Regular commercial window cleaning and carefully managed internal cleaning for workplaces and shared buildings across Birmingham, Solihull and surrounding areas." image="/images/window-cleaning-van-equipment.jpg" imageAlt="Van-mounted system and professional equipment for commercial window cleaning" highlights={[
+  return <ServicePage eyebrow="Commercial cleaning" title="Commercial window cleaning in Birmingham." intro="Regular commercial window cleaning and carefully managed internal cleaning for workplaces and shared buildings across Birmingham, Solihull and surrounding areas." image="/images/window-cleaning-van-equipment.jpg" imageAlt="Commercial window cleaning by Bullivant Cleaning in Birmingham" highlights={[
     { title: "Reliable regular service", text: "Planned cleaning to help your property present consistently well." },
     { title: "Inside and out", text: "External and internal commercial window cleaning available." },
     { title: "Suitable for varied premises", text: "Experience across workplaces, retail, residential blocks and care settings." },

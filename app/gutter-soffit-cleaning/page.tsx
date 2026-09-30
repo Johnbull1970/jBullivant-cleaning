@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { ServicePage } from "../components/ServicePage";
+import { createPageMetadata } from "../lib/seo";
 
-export const metadata: Metadata = { title: "Gutter & Soffit Cleaning Birmingham & Solihull", description: "Professional gutter and soffit cleaning across Birmingham, Solihull and surrounding areas." };
+export const metadata: Metadata = createPageMetadata({ title: "Gutter & Soffit Cleaning Birmingham | Bullivant Cleaning", description: "Professional gutter and soffit cleaning for homes and suitable commercial properties across Birmingham, Solihull and surrounding areas.", path: "/gutter-soffit-cleaning" });
 
 export default function GutterPage() {
-  return <ServicePage eyebrow="Exterior care" title="Gutters and soffits, carefully refreshed." intro="A considered exterior clean that lifts weathering and built-up dirt from the details that frame your property." image="/images/clean-residential-windows.jpg" imageAlt="Clean soffits, guttering and window frames on a brick home" highlights={[
+  return <ServicePage eyebrow="Exterior care" title="Gutter and soffit cleaning in Birmingham." intro="A considered exterior cleaning service across Birmingham and surrounding areas that lifts weathering and built-up dirt from the details that frame your property." image="/images/clean-residential-windows.jpg" imageAlt="Gutter and soffit cleaning service at a Birmingham home" highlights={[
     { title: "Residential properties", text: "Careful gutter and soffit cleaning for houses, bungalows, flats and apartments." },
     { title: "Commercial premises", text: "A professional service for suitable commercial buildings and managed properties." },
     { title: "Experienced at height", text: "Appropriate equipment and more than 40 years of practical cleaning experience." },

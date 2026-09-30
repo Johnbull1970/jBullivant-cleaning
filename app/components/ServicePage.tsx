@@ -33,7 +33,7 @@ export function ServicePage({ eyebrow, title, intro, image, imageAlt, highlights
 
       <section className="feature-row reveal">
         {highlights.map((item, index) => (
-          <article key={item.title}><span>0{index + 1}</span><h3>{item.title}</h3><p>{item.text}</p></article>
+          <article key={item.title}><span>0{index + 1}</span><h2>{item.title}</h2><p>{item.text}</p></article>
         ))}
       </section>
 
@@ -54,6 +54,7 @@ export function ServicePage({ eyebrow, title, intro, image, imageAlt, highlights
           <p className="eyebrow light">Professional equipment. Considered methods.</p>
           <h2>{methodTitle}</h2>
           <p>{methodText}</p>
+          <a className="arrow-link light" href="/areas-we-cover">See the areas Bullivant Cleaning covers <span aria-hidden="true">→</span></a>
           <div className="mini-facts"><span>Fully insured</span><span>Family-run</span><span>Regular customers</span></div>
         </div>
       </section>

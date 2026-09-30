@@ -24,6 +24,17 @@ const publicRoutes = [
   "/quote",
 ];
 
+const expectedTitles = {
+  "/": "Bullivant Cleaning | Window Cleaners in Birmingham",
+  "/window-cleaning": "Window Cleaning Birmingham | Bullivant Cleaning",
+  "/gutter-soffit-cleaning": "Gutter & Soffit Cleaning Birmingham | Bullivant Cleaning",
+  "/commercial-cleaning": "Commercial Window Cleaning Birmingham | Bullivant Cleaning",
+  "/internal-cleaning": "Internal Window Cleaning Birmingham | Bullivant Cleaning",
+  "/about": "About Bullivant Cleaning | Birmingham Window Cleaners",
+  "/areas-we-cover": "Window Cleaning Across Birmingham & Surrounding Areas | Bullivant Cleaning",
+  "/quote": "Free Window Cleaning Quote Birmingham | Bullivant Cleaning",
+};
+
 const projectRoot = fileURLToPath(new URL("..", import.meta.url));
 const testPort = Number(process.env.TEST_PORT || 34118);
 const testOrigin = `http://127.0.0.1:${testPort}`;
@@ -75,7 +86,12 @@ test("all public pages and internal links resolve", async () => {
     assert.equal(response.status, 200, route);
     assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i, route);
     const html = await response.text();
-    assert.match(html, /J Bullivant Cleaning/i, route);
+    assert.match(html, /Bullivant Cleaning/i, route);
+    const renderedTitle = expectedTitles[route].replaceAll("&", "&amp;");
+    assert.ok(html.includes(`<title>${renderedTitle}</title>`), route);
+    const canonicalPath = route === "/" ? "" : route;
+    assert.match(html, new RegExp(`<link rel="canonical" href="https://bullivantcleaning\\.com${canonicalPath}"`), route);
+    assert.equal((html.match(/<h1\b/g) ?? []).length, 1, `${route}: expected exactly one h1`);
     assert.doesNotMatch(html, /codex-preview|SkeletonPreview|Your site is taking shape/i, route);
     assert.doesNotMatch(html, /href=""|href="#"|javascript:void\(0\)/i, route);
 
@@ -90,6 +106,30 @@ test("all public pages and internal links resolve", async () => {
   }
 });
 
+test("robots, sitemap and manifest use the production brand and domain", async () => {
+  const [robotsResponse, sitemapResponse, manifestResponse] = await Promise.all([
+    render("/robots.txt"),
+    render("/sitemap.xml"),
+    render("/manifest.webmanifest"),
+  ]);
+  assert.equal(robotsResponse.status, 200);
+  assert.equal(sitemapResponse.status, 200);
+  assert.equal(manifestResponse.status, 200);
+
+  const robots = await robotsResponse.text();
+  assert.match(robots, /Allow: \/\n/);
+  assert.match(robots, /Sitemap: https:\/\/bullivantcleaning\.com\/sitemap\.xml/);
+
+  const sitemap = await sitemapResponse.text();
+  for (const route of publicRoutes) {
+    assert.ok(sitemap.includes(`<loc>https://bullivantcleaning.com${route}</loc>`), route);
+  }
+
+  const manifest = await manifestResponse.json();
+  assert.equal(manifest.name, "Bullivant Cleaning");
+  assert.equal(manifest.short_name, "Bullivant Cleaning");
+});
+
 test("contact links use the exact destinations", async () => {
   const response = await render();
   const html = await response.text();
@@ -100,7 +140,7 @@ test("contact links use the exact destinations", async () => {
   assert.ok(anchors.some((link) => link.href === DIRECT_QUOTE_EMAIL_HREF && link.text === PRIMARY_EMAIL));
   assert.ok(anchors.some((link) => link.href === BACKUP_EMAIL_HREF && /backup/i.test(link.text)));
   assert.ok(anchors.some((link) => link.href === MAP_HREF && /24 Linden Road/i.test(link.text)));
-  assert.match(DIRECT_QUOTE_EMAIL_HREF, /subject=Free%20Quote%20Enquiry%20%E2%80%93%20J%20Bullivant%20Cleaning$/);
+  assert.match(DIRECT_QUOTE_EMAIL_HREF, /subject=Free%20Quote%20Enquiry%20%E2%80%93%20Bullivant%20Cleaning$/);
 });
 
 test("quote email safely encodes punctuation and includes every residential field", () => {

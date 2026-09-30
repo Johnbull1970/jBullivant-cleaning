@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { ServicePage } from "../components/ServicePage";
+import { createPageMetadata } from "../lib/seo";
 
-export const metadata: Metadata = { title: "Window Cleaning Birmingham & Solihull", description: "Regular residential and commercial window cleaning in Birmingham, Solihull, Shirley, Knowle and surrounding areas." };
+export const metadata: Metadata = createPageMetadata({ title: "Window Cleaning Birmingham | Bullivant Cleaning", description: "Professional residential window cleaning in Birmingham using reach-and-wash and traditional methods, with regular rounds across Solihull, Shirley, Knowle and nearby areas.", path: "/window-cleaning" });
 
 export default function WindowCleaningPage() {
-  return <ServicePage eyebrow="Residential & commercial" title="Window cleaning, done properly." intro="Reliable regular window cleaning with the reach, equipment and experience to care for the whole window—not only the glass." image="/images/reach-and-wash-window-cleaning.jpg" imageAlt="Reach-and-wash cleaning of an upper-floor residential window" highlights={[
+  return <ServicePage eyebrow="Residential & commercial" title="Professional window cleaning in Birmingham." intro="Reliable regular window cleaning across Birmingham, Solihull and surrounding areas, with the reach, equipment and experience to care for the whole window—not only the glass." image="/images/reach-and-wash-window-cleaning.jpg" imageAlt="Professional window cleaner using a water-fed pole in Birmingham" highlights={[
     { title: "Regular residential rounds", text: "Dependable 4, 6, 8-week or another regular schedule to suit your home." },
     { title: "Frames & sills included", text: "We clean the whole window as standard for a noticeably better finish." },
     { title: "Internal or external", text: "Exterior cleaning plus careful internal window cleaning where requested." },

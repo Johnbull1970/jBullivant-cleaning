@@ -1,32 +1,30 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import "./globals.css";
 import { Footer, Header, MobileActions } from "./components/SiteChrome";
+import { BUSINESS_NAME, SITE_URL, createPageMetadata } from "./lib/seo";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const requestHeaders = await headers();
-  const host = requestHeaders.get("host") || "j-bullivant-cleaning.sites.openai.com";
-  const protocol = requestHeaders.get("x-forwarded-proto") || "https";
-  const base = new URL(`${protocol}://${host}`);
-  const title = "J Bullivant Cleaning | Window Cleaning Birmingham & Solihull";
-  const description = "Family-run residential and commercial window cleaning across Birmingham, Solihull and surrounding areas.";
-  const socialImage = new URL("/og.png", base).toString();
-  return {
-    metadataBase: base,
-    title: { default: title, template: "%s | J Bullivant Cleaning" },
-    description,
-    icons: { icon: "/images/j-bullivant-logo.png" },
-    openGraph: { title, description, images: [{ url: socialImage, width: 1200, height: 630, alt: "J Bullivant Cleaning—clear results built over generations" }], type: "website" },
-    twitter: { card: "summary_large_image", title, description, images: [socialImage] },
-  };
-}
+const homeTitle = "Bullivant Cleaning | Window Cleaners in Birmingham";
+const homeDescription = "Established window cleaners in Birmingham providing professional residential, commercial, gutter, soffit and internal window cleaning across the surrounding areas.";
+
+export const metadata: Metadata = {
+  metadataBase: SITE_URL,
+  ...createPageMetadata({ title: homeTitle, description: homeDescription, path: "/" }),
+  applicationName: BUSINESS_NAME,
+  title: { default: homeTitle, template: `%s | ${BUSINESS_NAME}` },
+  manifest: "/manifest.webmanifest",
+  icons: { icon: "/favicon.svg", shortcut: "/favicon.svg", apple: "/favicon.svg" },
+  robots: { index: true, follow: true },
+};
 
 const localBusiness = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: "J Bullivant Cleaning",
+  "@type": ["LocalBusiness", "ProfessionalService"],
+  "@id": "https://bullivantcleaning.com/#business",
+  name: "Bullivant Cleaning",
+  url: "https://bullivantcleaning.com",
   telephone: "+44 7855 399330",
   email: "Bulldotcom@blueyonder.co.uk",
+  image: "https://bullivantcleaning.com/og.png",
   address: {
     "@type": "PostalAddress",
     streetAddress: "24 Linden Road",
@@ -35,8 +33,8 @@ const localBusiness = {
     addressCountry: "GB",
   },
   areaServed: ["Birmingham", "Solihull", "Shirley", "Knowle", "Dickens Heath", "Harborne", "Edgbaston", "Bromsgrove"],
-  openingHours: ["Mo-Fr window cleaning", "Mo-Su phone and email enquiries"],
-  description: "Family-run residential and commercial window cleaning with more than 40 years of hands-on professional experience.",
+  serviceType: ["Window cleaning", "Commercial window cleaning", "Internal window cleaning", "Gutter cleaning", "Soffit cleaning"],
+  description: "Established window cleaners providing residential, commercial, internal, gutter and soffit cleaning across Birmingham and surrounding areas.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
